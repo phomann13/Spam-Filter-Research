@@ -65,8 +65,51 @@ Additionally, to operate any OpenAi API a secret key with funding is required.
 - In the relevant cell(s), the notebook should **read the token from Colab’s secrets manager or environment** (rather than embedding it in the code) and use it to authenticate with Hugging Face when loading models or datasets from the Hub.
 - If you change the secret name (e.g., something other than `HF_TOKEN`), update the corresponding code in the notebook that retrieves the token so they match.
 
-## Zipped files
-Due to the size of the model weights and dataset, the following files were compressed before being pushed to GitHub. Before running the notebook, please unzip them and place the extracted folders in the same directory level as the current zip file:
+## Model File Size Notice
+
+The files used in this project exceeds the 100 MB file size limit enforced by GitHub for files stored directly in repositories. The compressed artifact are too large, which prevents it from being committed through standard Git tracking.
+
+To address this limitation, the files are stored using Git Large File Storage. Git LFS stores large binary files outside the normal Git object store while keeping lightweight pointer files inside the repository. When cloning the repository, Git automatically retrieves the actual model file through Git LFS.
+
+### Requirements
+
+Before cloning the repository, ensure that Git LFS is installed.
+
+Installation instructions can be found in the official documentation for Git Large File Storage.
+
+### Setup After Cloning
+
+After cloning the repository, the following steps must be performed to retrieve the model file:
+
+1. Install Git LFS (if it is not already installed).
+
+2. Initialize Git LFS on your machine:
+
+```bash
+git lfs install
+```
+3. Clone the repo as usual:
+```bash
+git clone <repository-url>
+```
+4. Navigate into repo directory
+```bash
+cd <repository-name>
+```
+5.Pull the large files track by Git LFS:
+```bash
+git lfs pull
+```
+This command downloads the full model artifact referenced by the pointer file in the repository.
+
+### Notes
+
+- Without Git LFS installed, the repository will only contain a pointer file rather than the actual file.
+
+- Running git lfs pull ensures the full file is downloaded and available for inference or evaluation.
+
+Once these steps are completed, the model file will appear in the expected directory and the project can be executed normally.
+Before running the notebook, please unzip them and place the extracted folders in the same directory level as the current zip file:
 
 spam_data_2021.zip → spam_data_2021/
 bert_spam_model.zip → bert_spam_model/
