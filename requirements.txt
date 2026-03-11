@@ -1,0 +1,26 @@
+# Core data science
+numpy
+pandas
+matplotlib
+scipy
+
+# Machine learning
+scikit-learn
+
+# NLP & deep learning
+nltk
+torch
+transformers
+datasets
+accelerate
+evaluate
+sentence-transformers
+
+# LLM API
+openai
+
+# Explainability
+shap
+
+# File handling
+py7zr
