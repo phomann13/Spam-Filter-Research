@@ -65,6 +65,12 @@ Additionally, to operate any OpenAi API a secret key with funding is required.
 - In the relevant cell(s), the notebook should **read the token from Colab’s secrets manager or environment** (rather than embedding it in the code) and use it to authenticate with Hugging Face when loading models or datasets from the Hub.
 - If you change the secret name (e.g., something other than `HF_TOKEN`), update the corresponding code in the notebook that retrieves the token so they match.
 
+## Zipped files
+Due to the size of the model weights and dataset, the following files were compressed before being pushed to GitHub. Before running the notebook, please unzip them and place the extracted folders in the same directory level as the current zip file:
+
+spam_data_2021.zip → spam_data_2021/
+bert_spam_model.zip → bert_spam_model/
+
 ## How to Run the Notebook End‑to‑End
 
 1. Ensure you are in a **GPU runtime** (Colab or local).
