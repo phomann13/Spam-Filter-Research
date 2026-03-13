@@ -1,3 +1,5 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
 .csv filter=lfs diff=lfs merge=lfs -text
 *.csv filter=lfs diff=lfs merge=lfs -text
+data/spamassassin_corpus.csv filter=lfs diff=lfs merge=lfs -text
+notebooks/bert_spam_model_2.zip filter=lfs diff=lfs merge=lfs -text
